@@ -1,29 +1,27 @@
 <template>
   <div id="app">
-    <SalutationName
-      v-model:salutation.capitalize="form.salutation"
-      v-model:name.capitalize.reverse="form.name"
+    <BaseInput
+      v-model="email"
+      label="Email:"
     />
-    <pre>{{ form }}</pre>
+
+    <pre>{{ email }}</pre>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
-import SalutationName from './components/SalutationName'
-
+import { ref } from 'vue'
+import BaseInput from './components/BaseInput'
 export default {
   name: 'App',
   components: {
-    SalutationName
+    BaseInput
   },
   setup () {
-    const form = reactive({
-      salutation: '',
-      name: ''
-    })
-
-    return { form }
+    const email = ref('')
+    return {
+      email
+    }
   }
 }
 </script>
@@ -37,11 +35,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 pre {
   font-size: 1.5rem;
 }
-
 button,
 label,
 input,
@@ -58,6 +54,9 @@ input,
 textarea {
   box-sizing: border-box;
   border: solid 1px rgba(0, 0, 0, 0.4);
+}
+input.thicc {
+  border-width: 4px;
 }
 textarea {
   width: 100%;
