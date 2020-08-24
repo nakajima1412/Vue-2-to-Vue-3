@@ -2,7 +2,10 @@
   <div id="app">
     <BaseInput
       v-model="email"
+      @blur="email = 'blurrrr@its.cold'"
       label="Email:"
+      type="email"
+      class="thicc"
     />
 
     <pre>{{ email }}</pre>
